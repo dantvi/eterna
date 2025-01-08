@@ -1,5 +1,5 @@
 import { Fragment } from 'react/jsx-runtime';
-import { Link } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 
 import diamondLogo from '../../assets/icon-diamond.png';
 
@@ -21,6 +21,7 @@ const Navigation = () => {
           </Link>
         </div>
       </div>
+      <Outlet />
     </Fragment>
   );
 };
