@@ -1,12 +1,9 @@
 import Hero from "../../components/hero/Hero.component";
 
-const Home = () => {
+const Landing = () => {
   return (
-    <>
-      <Hero />
-
-    </>
+    <Hero />
   );
-}
+};
 
-export default Home;
+export default Landing;

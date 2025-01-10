@@ -1,4 +1,3 @@
-import { Fragment } from 'react/jsx-runtime';
 import { Outlet, Link } from 'react-router-dom';
 
 import diamondLogo from '../../assets/icon-diamond.png';
@@ -7,7 +6,7 @@ import './Navigation.styles.scss';
 
 const Navigation = () => {
   return (
-    <Fragment>
+    <>
       <div className='navigation'>
         <Link className='logo-container' to={'/'} title='Go to home'>
           <img src={diamondLogo} alt='Eterna logo' className='logo' />
@@ -22,7 +21,7 @@ const Navigation = () => {
         </div>
       </div>
       <Outlet />
-    </Fragment>
+    </>
   );
 };
 
