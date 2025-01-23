@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Button from '../button/Button.component';
 import './Hero.styles.scss';
 
 const Hero = () => {
@@ -11,12 +12,7 @@ const Hero = () => {
           <div className='hero-wrapper'>
             <h1>Welcome to Eterna</h1>
             <p>Timeless Elegance in Every Piece</p>
-            <button
-              className='cta-button'
-              onClick={() => navigate('/categories')}
-            >
-              Shop Now
-            </button>
+            <Button onClick={() => navigate('/categories')}>Shop Now</Button>
           </div>
         </div>
       </section>
