@@ -3,7 +3,6 @@ import './Button.styles.scss';
 const BUTTON_TYPE_CLASSES = {
   primary: 'primary-button',
   inverted: 'inverted-button',
-  google: 'google-sign-in',
 };
 
 interface ButtonProps {
