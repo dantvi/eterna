@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import FormInput from '../form-input/Form-input.component';
 import Button from '../button/Button.component';
-import './sign-in-form.styles.scss';
+import './Sign-in-form.styles.scss';
 
 type FormFields = {
   email: string;
