@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import './Hero.styles.scss';
-import SignInForm from '../sign-in-form/sign-in-form.component';
-import SignUpForm from '../sign-up-form/Sign-up-form.components';
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -22,8 +20,6 @@ const Hero = () => {
           </div>
         </div>
       </section>
-      <SignInForm /> {/* REMOVE LATER! */}
-      <SignUpForm /> {/* REMOVE LATER! */}
     </>
   );
 };
