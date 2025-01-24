@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Golden Eternity Ring",
+    "category": "rings",
+    "imageUrl": "https://placehold.co/350x350",
+    "price": 199
+  },
+  {
+    "id": 2,
+    "name": "Silver Charm Necklace",
+    "category": "necklaces",
+    "imageUrl": "https://placehold.co/350x350",
+    "price": 149
+  },
+  {
+    "id": 3,
+    "name": "Diamond Stud Earrings",
+    "category": "earrings",
+    "imageUrl": "https://placehold.co/350x350",
+    "price": 299
+  },
+  {
+    "id": 4,
+    "name": "Rose Gold Bracelet",
+    "category": "bracelets",
+    "imageUrl": "https://placehold.co/350x350",
+    "price": 179
+  },
+  {
+    "id": 5,
+    "name": "Vintage Pearl Brooch",
+    "category": "brooches",
+    "imageUrl": "https://placehold.co/350x350",
+    "price": 89
+  },
+  {
+    "id": 6,
+    "name": "Platinum Wedding Ring",
+    "category": "rings",
+    "imageUrl": "https://placehold.co/350x350",
+    "price": 499
+  },
+  {
+    "id": 7,
+    "name": "Crystal Pendant Necklace",
+    "category": "necklaces",
+    "imageUrl": "https://placehold.co/350x350",
+    "price": 129
+  },
+  {
+    "id": 8,
+    "name": "Hoop Earrings",
+    "category": "earrings",
+    "imageUrl": "https://placehold.co/350x350",
+    "price": 99
+  },
+  {
+    "id": 9,
+    "name": "Cuff Bracelet",
+    "category": "bracelets",
+    "imageUrl": "https://placehold.co/350x350",
+    "price": 139
+  },
+  {
+    "id": 10,
+    "name": "Floral Gem Brooch",
+    "category": "brooches",
+    "imageUrl": "https://placehold.co/350x350",
+    "price": 109
+  }
+]
