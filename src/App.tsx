@@ -6,8 +6,6 @@ import Categories from './routes/categories/Categories.component';
 import Authentication from './routes/authentication/Authentication.component';
 import Shop from './routes/shop/Shop.component';
 
-import './App.css';
-
 function App() {
   return (
     <Router>
