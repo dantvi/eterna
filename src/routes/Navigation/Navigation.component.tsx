@@ -1,10 +1,14 @@
 import { Outlet, Link } from 'react-router-dom';
-
+import { useContext } from 'react';
+import { CartContext } from '../../contexts/cart.context';
 import diamondLogo from '../../assets/icon-diamond.png';
-
+import CartIcon from '../../components/cart.icon/Cart-icon.component';
+import CartDropdown from '../../components/cart-dropdown/Cart-dropdown.component';
 import './Navigation.styles.scss';
 
 const Navigation = () => {
+  const { isCartOpen } = useContext(CartContext);
+
   return (
     <>
       <div className='navigation'>
@@ -18,7 +22,9 @@ const Navigation = () => {
           <Link className='nav-link' to={'/auth'} title='Go to sign in page'>
             SIGN IN
           </Link>
+          <CartIcon />
         </div>
+        {isCartOpen && <CartDropdown />}
       </div>
       <Outlet />
     </>

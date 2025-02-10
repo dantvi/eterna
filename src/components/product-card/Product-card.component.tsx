@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { Product } from '../../interfaces/product';
+import { CartContext } from '../../contexts/cart.context';
 import Button from '../button/Button.component';
 import './Product-card.styles.scss';
 
@@ -8,10 +10,9 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const { name, price, imageUrl } = product;
+  const { addItemToCart } = useContext(CartContext);
 
-  const addProductToCart = (): void => {
-    console.log(`Added ${name} to cart`);
-  };
+  const addProductToCart = (): void => addItemToCart(product);
 
   return (
     <div className='product-card-container'>
