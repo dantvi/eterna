@@ -1,6 +1,12 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
 import FormInput from '../form-input/Form-input.component';
 import Button from '../button/Button.component';
+
+import {
+  signInWithGooglePopup,
+  signInAuthUserWithEmailAndPassword,
+} from '../../utils/firebase.utils';
+
 import './Sign-in-form.styles.scss';
 
 type FormFields = {
@@ -21,15 +27,32 @@ const SignInForm: React.FC = () => {
     setFormFields(defaultFormFields);
   };
 
+  const signInWithGoogle = async () => {
+    try {
+      await signInWithGooglePopup();
+    } catch (error) {
+      console.error('Google Sign-In error', error);
+    }
+  };
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      // Placeholder for API call
-      // Replace the with API integration
-      console.log('Attempting to sign in with:', { email, password });
+      await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
-    } catch (error) {
-      console.error('Sign-in error', error);
+    } catch (error: any) {
+      switch (error.code) {
+        case 'auth/invalid-credential':
+          alert('Invalid email or password.');
+          break;
+        case 'auth/too-many-requests':
+          alert(
+            'Too many failed login attempts. Please reset your password or try again later.'
+          );
+          break;
+        default:
+          console.error('Sign-in error', error);
+      }
     }
   };
 
@@ -61,6 +84,9 @@ const SignInForm: React.FC = () => {
         />
         <div className='buttons-container'>
           <Button type='submit'>Sign In</Button>
+          <Button type='button' buttonType='google' onClick={signInWithGoogle}>
+            Google Sign In
+          </Button>
         </div>
       </form>
     </div>
