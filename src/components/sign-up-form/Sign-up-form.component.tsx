@@ -34,11 +34,12 @@ const SignUpForm: React.FC = () => {
       return;
     }
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(
+      const userCredential = await createAuthUserWithEmailAndPassword(
         formFields.email,
         formFields.password
       );
-      if (user) {
+      if (userCredential) {
+        const { user } = userCredential;
         await createUserDocumentFromAuth(user, {
           displayName: formFields.displayName,
         });
