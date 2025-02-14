@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import FormInput from '../form-input/Form-input.component';
 import Button from '../button/Button.component';
 import './Sign-up-form.styles.scss';
+import {
+  createAuthUserWithEmailAndPassword,
+  createUserDocumentFromAuth,
+} from '../../utils/firebase.utils';
 
 type FormFields = {
   displayName: string;
@@ -23,19 +27,32 @@ const SignUpForm: React.FC = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (formFields.password !== formFields.confirmPassword) {
       alert('Passwords do not match');
       return;
     }
-    console.log('Form submitted: ', formFields);
-    setFormFields({
-      displayName: '',
-      email: '',
-      password: '',
-      confirmPassword: '',
-    });
+    try {
+      const { user } = await createAuthUserWithEmailAndPassword(
+        formFields.email,
+        formFields.password
+      );
+      if (user) {
+        await createUserDocumentFromAuth(user, {
+          displayName: formFields.displayName,
+        });
+        console.log('User created and saved to Firestore:', user);
+      }
+      setFormFields({
+        displayName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+      });
+    } catch (error) {
+      console.error('Error during sign up:', error);
+    }
   };
 
   return (
