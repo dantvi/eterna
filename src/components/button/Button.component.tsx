@@ -3,11 +3,12 @@ import './Button.styles.scss';
 const BUTTON_TYPE_CLASSES = {
   primary: 'primary-button',
   inverted: 'inverted-button',
+  google: 'google-sign-in',
 };
 
 interface ButtonProps {
   children: React.ReactNode;
-  buttonType?: 'primary' | 'inverted';
+  buttonType?: 'primary' | 'inverted' | 'google';
   type?: 'button' | 'submit' | 'reset';
   onClick?: () => void;
   disabled?: boolean;
