@@ -1,6 +1,7 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useEffect, useState } from 'react';
 import { Product } from '../interfaces/product';
-import PRODUCTS from '../shop-data.json';
+
+import { getCategoriesAndDocuments } from '../utils/firebase.utils.js';
 
 interface ProductsContextType {
   products: Product[];
@@ -17,7 +18,16 @@ export const ProductsContext = createContext<ProductsContextType>({
 export const ProductsProvider: React.FC<ProductsProviderProps> = ({
   children,
 }) => {
-  const [products] = useState<Product[]>(PRODUCTS);
+  const [products] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const getCategoriesMap = async () => {
+      const categoryMap = await getCategoriesAndDocuments();
+      console.log(categoryMap);
+    };
+    getCategoriesMap();
+  }, []);
+
   const value = { products };
 
   return (
