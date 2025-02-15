@@ -11,7 +11,28 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  writeBatch,
+  query,
+  getDocs,
+} from 'firebase/firestore';
+
+type CategoryItem = {
+  id: number;
+  name: string;
+  imageUrl: string;
+  price: number;
+};
+
+type Category = {
+  title: string;
+  items: CategoryItem[];
+};
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -34,6 +55,37 @@ export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
 
 export const db = getFirestore(firebaseApp);
+
+export const addCollectionAndDocuments = async (
+  collectionKey: string,
+  objectsToAdd: Category[]
+) => {
+  const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
+
+  objectsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+    batch.set(docRef, object);
+  });
+
+  await batch.commit();
+  console.log('done');
+};
+
+export const getCategoriesAndDocuments = async (): Promise<
+  Record<string, CategoryItem[]>
+> => {
+  const collectionRef = collection(db, 'categories');
+  const q = query(collectionRef);
+  const querySnapshot = await getDocs(q);
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, items } = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+  }, {} as Record<string, CategoryItem[]>);
+
+  return categoryMap;
+};
 
 export const createUserDocumentFromAuth = async (
   userAuth: User,

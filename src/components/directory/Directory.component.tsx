@@ -1,4 +1,4 @@
-import CategoryItem from '../category-item/Category-item.component';
+import DirectoryItem from '../directory-item/Directory-item.component';
 import './Directory.styles.scss';
 
 interface Category {
@@ -9,12 +9,12 @@ interface Category {
 
 const Directory = ({ categories }: { categories: Category[] }) => {
   return (
-    <div className="directory-container">
+    <div className='directory-container'>
       {categories.map((category) => (
-        <CategoryItem key={category.id} category={category} />
+        <DirectoryItem key={category.id} category={category} />
       ))}
     </div>
   );
-}
+};
 
 export default Directory;

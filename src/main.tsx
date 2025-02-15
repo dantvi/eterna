@@ -1,16 +1,16 @@
 import { createRoot } from 'react-dom/client';
 import { StrictMode } from 'react';
-import { ProductsProvider } from './contexts/products.context';
+import { CategoriesProvider } from './contexts/categories.context';
 import { CartProvider } from './contexts/cart.context';
 import './index.scss';
 import App from './App';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ProductsProvider>
+    <CategoriesProvider>
       <CartProvider>
         <App />
       </CartProvider>
-    </ProductsProvider>
+    </CategoriesProvider>
   </StrictMode>
 );
