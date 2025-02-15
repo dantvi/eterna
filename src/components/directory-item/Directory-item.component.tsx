@@ -1,16 +1,16 @@
-import './Category-item.styles.scss';
+import './Directory-item.styles.scss';
 
 interface Category {
   imageUrl: string;
   title: string;
 }
 
-const CategoryItem = ({ category }: { category: Category }) => {
+const DirectoryItem = ({ category }: { category: Category }) => {
   const { imageUrl, title } = category;
   return (
-    <div className="category-container">
+    <div className="directory-item-container">
       <div className="background-image" style={{ backgroundImage: `url(${imageUrl})` }} />
-      <div className="category-body-container">
+      <div className="body">
         <h2>{title}</h2>
         <p>Shop Now</p>
       </div>
@@ -18,4 +18,4 @@ const CategoryItem = ({ category }: { category: Category }) => {
   );
 }
 
-export default CategoryItem;
+export default DirectoryItem;
