@@ -24,17 +24,20 @@ const Navigation = () => {
         </Link>
         <div className='nav-links-container'>
           {currentUser ? (
-            <span className='nav-link'>
-              Hello, {currentUser.email}
-            </span>
+            <span className='current-user-email'>{currentUser.email}</span>
           ) : null}
           <Link className='nav-link' to={'/shop'} title='Go to shop'>
             SHOP
           </Link>
           {currentUser ? (
-            <span className='nav-link' onClick={signOutHandler}>
+            <Link
+              className='nav-link'
+              to={'/'}
+              title='Go to landing page'
+              onClick={signOutHandler}
+            >
               SIGN OUT
-            </span>
+            </Link>
           ) : (
             <Link className='nav-link' to={'/auth'} title='Go to sign in page'>
               SIGN IN
