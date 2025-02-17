@@ -41,6 +41,7 @@ const SignInForm: React.FC = () => {
       await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (error: any) {
+      console.error('Error during sign-in:', error);
       switch (error.code) {
         case 'auth/invalid-credential':
           alert('Invalid email or password.');

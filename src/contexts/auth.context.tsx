@@ -4,12 +4,10 @@ import { auth } from '../utils/firebase.utils';
 
 type AuthContextType = {
   currentUser: User | null;
-  setCurrentUser: (user: User | null) => void;
 };
 
 export const AuthContext = createContext<AuthContextType>({
   currentUser: null,
-  setCurrentUser: () => {},
 });
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
@@ -22,7 +20,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     return unsubscribe;
   }, []);
 
-  const value = { currentUser, setCurrentUser };
-
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ currentUser }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
