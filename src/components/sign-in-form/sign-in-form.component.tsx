@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import FormInput from '../form-input/Form-input.component';
 import Button from '../button/Button.component';
 
@@ -20,6 +21,8 @@ const defaultFormFields: FormFields = {
 };
 
 const SignInForm: React.FC = () => {
+  const navigate = useNavigate();
+
   const [formFields, setFormFields] = useState<FormFields>(defaultFormFields);
   const { email, password } = formFields;
 
@@ -40,7 +43,9 @@ const SignInForm: React.FC = () => {
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
+      navigate('/shop');
     } catch (error: any) {
+      console.error('Error during sign-in:', error);
       switch (error.code) {
         case 'auth/invalid-credential':
           alert('Invalid email or password.');

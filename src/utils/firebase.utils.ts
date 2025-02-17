@@ -137,3 +137,10 @@ export const signInAuthUserWithEmailAndPassword = async (
   if (!email || !password) return;
   return await signInWithEmailAndPassword(auth, email, password);
 };
+
+export const getUserDocument = async (uid: string) => {
+  if (!uid) return null;
+  const userDocRef = doc(db, 'users', uid);
+  const userSnapshot = await getDoc(userDocRef);
+  return userSnapshot.exists() ? userSnapshot.data() : null;
+};

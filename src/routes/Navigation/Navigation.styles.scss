@@ -30,5 +30,13 @@
       padding: 10px 15px;
       cursor: pointer;
     }
+
+    .current-user-email {
+      cursor: auto;
+      user-select: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 10px 15px;
+    }
   }
 }
