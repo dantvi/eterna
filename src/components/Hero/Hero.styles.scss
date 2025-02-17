@@ -19,3 +19,43 @@
     }
   }
 }
+
+@media (max-width: 1290px) {
+  .hero .hero-content {
+    padding-left: 12rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero .hero-content {
+    padding-left: 8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero .hero-content {
+    padding-left: 4rem;
+  }
+}
+
+@media (max-width: 550px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero .hero-content {
+    padding-left: 6rem;
+  }
+}
+
+@media (max-width: 440px) {
+  .hero .hero-content {
+    padding-left: 3rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero .hero-content {
+    padding-left: 2rem;
+  }
+}
