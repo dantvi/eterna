@@ -59,3 +59,9 @@ a {
   color: black;
   font-weight: 600;
 }
+
+@media (max-width: 768px) {
+  body {
+    padding: 0px;
+  }
+}
