@@ -29,3 +29,22 @@
     font-size: 36px;
   }
 }
+
+@media (max-width: 780px) {
+  .checkout-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 520px) {
+  .checkout-container {
+    width: 100%;
+    margin: 0;
+
+    .header-block {
+      &:not(:first-child) {
+        display: none;
+      }
+    }
+  }
+}
