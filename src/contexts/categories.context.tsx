@@ -6,6 +6,7 @@ type CategoryItem = {
   name: string;
   imageUrl: string;
   price: number;
+  category: string;
 };
 
 type CategoriesMap = Record<string, CategoryItem[]>;
@@ -30,7 +31,7 @@ export const CategoriesProvider: React.FC<CategoriesProviderProps> = ({
   useEffect(() => {
     const getCategoriesMap = async () => {
       const categoryMap = await getCategoriesAndDocuments();
-      setCategoriesMap(categoryMap);
+      setCategoriesMap(categoryMap as CategoriesMap);
     };
     getCategoriesMap();
   }, []);
