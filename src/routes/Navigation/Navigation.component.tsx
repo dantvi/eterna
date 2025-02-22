@@ -6,6 +6,7 @@ import { auth } from '../../utils/firebase.utils';
 import diamondLogo from '../../assets/icon-diamond.png';
 import CartIcon from '../../components/cart.icon/Cart-icon.component';
 import CartDropdown from '../../components/cart-dropdown/Cart-dropdown.component';
+import MobileMenu from '../../components/mobile-menu/Mobile-menu.component';
 import './Navigation.styles.scss';
 
 const Navigation = () => {
@@ -45,6 +46,14 @@ const Navigation = () => {
           )}
           <CartIcon />
         </div>
+
+        <div className='nav-right-container'>
+          <div className='mobile-menu'>
+            <MobileMenu />
+          </div>
+          <CartIcon />
+        </div>
+
         {isCartOpen && <CartDropdown />}
       </div>
       <Outlet />

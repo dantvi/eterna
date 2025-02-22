@@ -10,3 +10,21 @@
   margin-bottom: 25px;
   text-align: center;
 }
+
+@media (max-width: 1125px) {
+  .category-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .category-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .category-container {
+    grid-template-columns: 1fr;
+  }
+}

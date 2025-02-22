@@ -19,3 +19,31 @@
     }
   }
 }
+
+@media (max-width: 1290px) {
+  .hero .hero-content {
+    padding-left: 12rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero .hero-content {
+    padding-left: 8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero .hero-content {
+    padding-left: 0rem;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 460px) {
+  .hero .hero-content {
+    padding-left: 0rem;
+    align-items: center;
+    text-align: center;
+  }
+}

@@ -1,0 +1,64 @@
+.bm-burger-button {
+  position: relative;
+  width: 36px;
+  height: 30px;
+  left: 10px;
+  top: 2px;
+  z-index: 1100;
+}
+
+.bm-burger-bars {
+  background: #000 !important;
+  height: 2px !important;
+  width: 30px !important;
+  transition: all 0.3s ease-in-out;
+}
+
+.bm-burger-bars-hover {
+  background: #424242 !important;
+}
+
+.bm-cross {
+  background: #fff !important;
+}
+
+.bm-menu {
+  background: #222;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.2em;
+  transition: transform 0.3s ease-in-out;
+}
+
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+  top: 0px;
+}
+
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3) !important;
+}
+
+.bm-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-item {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.menu-item:hover {
+  color: #ffcc00;
+}
+
+.mobile-user-email {
+  font-weight: bold;
+  color: #ffcc00;
+  padding: 10px;
+}
