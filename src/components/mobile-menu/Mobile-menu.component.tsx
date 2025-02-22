@@ -25,7 +25,12 @@ const MobileMenu = () => {
       {currentUser ? (
         <span className='mobile-user-email'>{currentUser.email}</span>
       ) : null}
-      <Link className='menu-item' to={'/'} onClick={closeMenu}>HOME</Link>
+      <Link className='menu-item' to={'/'} onClick={closeMenu}>
+        HOME
+      </Link>
+      <Link className='menu-item' to={'/categories'} onClick={closeMenu}>
+        CATEGORIES
+      </Link>
       <Link className='menu-item' to={'/shop'} onClick={closeMenu}>
         SHOP
       </Link>
