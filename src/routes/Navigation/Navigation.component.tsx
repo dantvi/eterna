@@ -27,6 +27,13 @@ const Navigation = () => {
           {currentUser ? (
             <span className='current-user-email'>{currentUser.email}</span>
           ) : null}
+          <Link
+            className='nav-link'
+            to={'/categories'}
+            title='Go to categories'
+          >
+            CATEGORIES
+          </Link>
           <Link className='nav-link' to={'/shop'} title='Go to shop'>
             SHOP
           </Link>
