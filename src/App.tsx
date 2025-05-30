@@ -5,6 +5,7 @@ import Categories from './routes/categories/Categories.component';
 import Authentication from './routes/authentication/Authentication.component';
 import Shop from './routes/shop/Shop.component';
 import Checkout from './routes/checkout/Checkout.component';
+import OrderConfirmation from './routes/order-confirmation/OrderConfirmation.component';
 import { AuthProvider } from './contexts/auth.context';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path='auth' element={<Authentication />} />
             <Route path='shop/*' element={<Shop />} />
             <Route path='checkout' element={<Checkout />} />
+            <Route path='/success' element={<OrderConfirmation />} />
           </Route>
         </Routes>
       </Router>

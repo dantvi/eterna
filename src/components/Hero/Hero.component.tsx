@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import Button from '../button/Button.component';
+import Button from '../buttons/Button.component';
 import './Hero.styles.scss';
 
 const Hero = () => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FormInput from '../form-input/Form-input.component';
-import Button from '../button/Button.component';
+import Button from '../buttons/Button.component';
 import './Sign-up-form.styles.scss';
 import {
   createAuthUserWithEmailAndPassword,
