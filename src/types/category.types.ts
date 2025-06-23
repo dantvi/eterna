@@ -20,6 +20,12 @@ export type Category = {
   isActive: boolean;
 };
 
+export type DirectoryCategory = {
+  id: string;
+  title: string;
+  imageUrl: string;
+};
+
 export interface CategoryItem {
   id: number;
   name: string;

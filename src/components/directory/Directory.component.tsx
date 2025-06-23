@@ -1,13 +1,8 @@
 import DirectoryItem from '../directory-item/Directory-item.component';
+import { DirectoryCategory } from '../../types/category.types';
 import './Directory.styles.scss';
 
-interface Category {
-  id: number;
-  imageUrl: string;
-  title: string;
-}
-
-const Directory = ({ categories }: { categories: Category[] }) => {
+const Directory = ({ categories }: { categories: DirectoryCategory[] }) => {
   return (
     <div className='directory-container'>
       {categories.map((category) => (
