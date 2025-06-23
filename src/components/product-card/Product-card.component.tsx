@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Product } from '../../interfaces/product';
+import { Product } from '../../types/product.types';
 import { CartContext } from '../../contexts/cart.context';
 import Button from '../button/Button.component';
 import './Product-card.styles.scss';
