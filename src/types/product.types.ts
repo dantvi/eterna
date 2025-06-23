@@ -11,13 +11,13 @@ export type RawProduct = {
   name: string;
   description: string;
   price: number;
-  image_url: string;
+  imageUrl: string;
   stock: number;
-  category_id: string;
+  categoryId: string;
 };
 
 export type Product = {
-  id: number;
+  id: string;
   name: string;
   price: number;
   imageUrl: string;

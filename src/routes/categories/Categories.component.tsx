@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import { CategoriesContext } from '../../contexts/categories.context';
 import Directory from '../../components/directory/Directory.component';
-import { DirectoryCategory } from '../../types/category.types';
+import { Category } from '../../types/category.types';
 
-const Categories = () => {
+const Categories: React.FC = () => {
   const { categories } = useContext(CategoriesContext);
 
-  const formatted: DirectoryCategory[] = categories.map((category) => ({
+  const formatted = categories.map((category: Category) => ({
     id: category.id,
     title: category.name,
     imageUrl: category.coverImage,

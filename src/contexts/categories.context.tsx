@@ -25,7 +25,7 @@ export const CategoriesProvider: React.FC<CategoriesProviderProps> = ({
         const data = await getAllCategories();
         setCategories(data);
       } catch (error) {
-        console.error('Failed to fetch categories:', error);
+        console.error('[CategoriesContext] Failed to fetch categories:', error);
       }
     };
     fetchCategories();
