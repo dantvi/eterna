@@ -16,7 +16,7 @@ const Category: React.FC = () => {
       const allProducts: Product[] = await getAllProducts();
       const cat = categories.find((c) => c.id === categoryId);
       const filtered = cat
-        ? allProducts.filter((p) => p.category_id === cat.id)
+        ? allProducts.filter((p) => p.category === cat.id)
         : [];
       setProducts(filtered);
     };

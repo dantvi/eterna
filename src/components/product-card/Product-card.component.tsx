@@ -9,14 +9,10 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const { name, price, imageUrl } = product; // Property 'imageUrl' does not exist on type 'Product'
+  const { name, price, imageUrl } = product;
   const { addItemToCart } = useContext(CartContext);
 
   const addProductToCart = (): void => addItemToCart(product);
-  /* 
-  Argument of type 'import("c:/Projects/Aktiva/eterna/src/types/product.types").Product' is not assignable to parameter of type 'Product'.
-  Property 'imageUrl' is missing in type 'import("c:/Projects/Aktiva/eterna/src/types/product.types").Product' but required in type 'Product'
-  */
 
   return (
     <div className='product-card-container'>

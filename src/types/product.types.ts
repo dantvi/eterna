@@ -6,7 +6,7 @@ export type LegacyProduct = {
   price: number;
 };
 
-export type Product = {
+export type RawProduct = {
   id: string;
   name: string;
   description: string;
@@ -14,4 +14,12 @@ export type Product = {
   image_url: string;
   stock: number;
   category_id: string;
+};
+
+export type Product = {
+  id: number;
+  name: string;
+  price: number;
+  imageUrl: string;
+  category: string;
 };
