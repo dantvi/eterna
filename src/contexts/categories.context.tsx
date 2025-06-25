@@ -1,18 +1,9 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
-import { getCategoriesAndDocuments } from '../utils/firebase.utils';
-
-type CategoryItem = {
-  id: number;
-  name: string;
-  imageUrl: string;
-  price: number;
-  category: string;
-};
-
-type CategoriesMap = Record<string, CategoryItem[]>;
+import { getAllCategories } from '../services/category.service';
+import { Category } from '../types/category.types';
 
 interface CategoriesContextType {
-  categoriesMap: CategoriesMap;
+  categories: Category[];
 }
 
 interface CategoriesProviderProps {
@@ -20,23 +11,27 @@ interface CategoriesProviderProps {
 }
 
 export const CategoriesContext = createContext<CategoriesContextType>({
-  categoriesMap: {},
+  categories: [],
 });
 
 export const CategoriesProvider: React.FC<CategoriesProviderProps> = ({
   children,
 }) => {
-  const [categoriesMap, setCategoriesMap] = useState<CategoriesMap>({});
+  const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoryMap = await getCategoriesAndDocuments();
-      setCategoriesMap(categoryMap as CategoriesMap);
+    const fetchCategories = async () => {
+      try {
+        const data = await getAllCategories();
+        setCategories(data);
+      } catch (error) {
+        console.error('[CategoriesContext] Failed to fetch categories:', error);
+      }
     };
-    getCategoriesMap();
+    fetchCategories();
   }, []);
 
-  const value = { categoriesMap };
+  const value = { categories };
 
   return (
     <CategoriesContext.Provider value={value}>

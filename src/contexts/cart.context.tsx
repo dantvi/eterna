@@ -1,11 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-
-type Product = {
-  id: number;
-  name: string;
-  imageUrl: string;
-  price: number;
-};
+import type { Product } from '../types/product.types';
 
 type CartItem = Product & {
   quantity: number;

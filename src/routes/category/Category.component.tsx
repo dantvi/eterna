@@ -1,37 +1,45 @@
-import { useContext, useState, useEffect, Fragment } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { useParams } from 'react-router-dom';
-import { CategoriesContext } from '../../contexts/categories.context';
+import { getAllProducts } from '../../services/product.service';
+import { Product } from '../../types/product.types';
 import ProductCard from '../../components/product-card/Product-card.component';
 import './category.styles.scss';
 
-type CategoryItem = {
-  id: number;
-  name: string;
-  imageUrl: string;
-  price: number;
-};
-
 const Category: React.FC = () => {
-  const { category } = useParams<{ category: string }>();
-  const { categoriesMap } = useContext(CategoriesContext);
-  const [products, setProducts] = useState<CategoryItem[]>([]);
+  const { categoryId } = useParams<{ categoryId: string }>();
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (category && categoriesMap[category]) {
-      setProducts(categoriesMap[category]);
-    }
-  }, [category, categoriesMap]);
+    const fetchProducts = async () => {
+      try {
+        const allProducts = await getAllProducts();
+
+        const filtered = allProducts.filter(
+          (product) =>
+            product.category?.toLowerCase() === categoryId?.toLowerCase()
+        );
+
+        setProducts(filtered);
+      } catch (err) {
+        console.error('[Category] Failed to load products:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [categoryId]);
+
+  if (loading) return <p>Loading products...</p>;
 
   return (
     <Fragment>
-      <h2 className='category-title'>
-        {category ? category.toUpperCase() : ''}
-      </h2>
+      <h2 className='category-title'>{categoryId?.toUpperCase()}</h2>
       <div className='category-container'>
-        {products &&
-          products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
       </div>
     </Fragment>
   );
