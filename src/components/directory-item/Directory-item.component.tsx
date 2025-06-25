@@ -8,10 +8,11 @@ interface Category {
 
 const DirectoryItem = ({ category }: { category: Category }) => {
   const { imageUrl, title } = category;
+
   return (
     <Link
       className='directory-item-container'
-      to={`/shop/${title.toLowerCase()}`}
+      to={`/categories/${title.toLowerCase()}`}
     >
       <div
         className='background-image'

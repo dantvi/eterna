@@ -6,29 +6,32 @@ import ProductCard from '../../components/product-card/Product-card.component';
 import './category.styles.scss';
 
 const Category: React.FC = () => {
-  const { category: categoryId } = useParams<{ category: string }>();
+  const { categoryId } = useParams<{ categoryId: string }>();
   const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
-      if (!categoryId) {
-        console.warn('[Category] No categoryId in params!');
-        setProducts([]);
-        return;
+      try {
+        const allProducts = await getAllProducts();
+
+        const filtered = allProducts.filter(
+          (product) =>
+            product.category?.toLowerCase() === categoryId?.toLowerCase()
+        );
+
+        setProducts(filtered);
+      } catch (err) {
+        console.error('[Category] Failed to load products:', err);
+      } finally {
+        setLoading(false);
       }
-
-      const allProducts = await getAllProducts();
-
-      const filtered = allProducts.filter((p) => {
-        if (!p.category) return false;
-        return p.category.toLowerCase() === categoryId.toLowerCase();
-      });
-
-      setProducts(filtered);
     };
 
     fetchProducts();
   }, [categoryId]);
+
+  if (loading) return <p>Loading products...</p>;
 
   return (
     <Fragment>

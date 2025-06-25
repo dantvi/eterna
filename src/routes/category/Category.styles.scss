@@ -1,14 +1,17 @@
 .category-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 20px;
-  row-gap: 50px;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
 .category-title {
-  font-size: 38px;
-  margin-bottom: 25px;
+  font-size: 2rem;
   text-align: center;
+  margin: 40px 0 20px;
+  text-transform: uppercase;
 }
 
 @media (max-width: 1125px) {
